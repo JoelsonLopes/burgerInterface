@@ -60,30 +60,6 @@ export const Input = styled.input`
   padding-left: 10px;
 `
 
-export const Button = styled.button`
-  width: 183px;
-  height: 37px;
-  background: #9758a6;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  font-style: normal;
-  font-weight: 500px;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #eeeeee;
-  margin-top: 75px;
-  margin-bottom: 25px;
-
-  &:hover {
-    opacity: 0.8;
-  }
-  &:active {
-    opacity: 0.5;
-  }
-`
-
 export const SignInLink = styled.p`
   color: #ffffff;
   font-size: 14px;

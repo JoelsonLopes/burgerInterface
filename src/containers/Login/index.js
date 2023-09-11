@@ -1,22 +1,27 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
 import Logo from '../../assets/logo_code_burger.svg'
 import LoginImg from '../../assets/logo_login.svg'
+import Button from '../../conponents/Button'
+import { useUser } from '../../hooks/UserContext'
+import api from '../../services/api'
 import {
   Container,
   LoginImage,
   ContainerItens,
   Label,
   Input,
-  Button,
   SignInLink,
   ErrorMessage
 } from './styles'
 
 function Login() {
+  const { putUserData } = useUser()
+
   const schema = Yup.object().shape({
     email: Yup.string()
       .email('Digite um email valido')
@@ -34,7 +39,20 @@ function Login() {
     resolver: yupResolver(schema)
   })
 
-  const onSubmit = data => console.log(data)
+  const onSubmit = async clientData => {
+    const { data } = await toast.promise(
+      api.post('sessions', {
+        email: clientData.email,
+        password: clientData.password
+      }),
+      {
+        pending: 'Verificando seus dados',
+        success: 'Seja bem vindo(a)',
+        error: 'Verefique seu email e senha'
+      }
+    )
+    putUserData(data)
+  }
 
   return (
     <Container>
@@ -60,7 +78,9 @@ function Login() {
           />
           <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button type="submit">Entrar</Button>
+          <Button type="submit" style={{ marginTop: 75, marginBottom: 25 }}>
+            Entrar
+          </Button>
         </form>
         <SignInLink>
           Não possui conta? <a>Cadastra-se</a>
