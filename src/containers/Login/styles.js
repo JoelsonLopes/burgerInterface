@@ -24,6 +24,11 @@ export const ContainerItens = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
   h1 {
     color: #ffffff;
     font-size: 24px;
@@ -51,7 +56,7 @@ export const Input = styled.input`
   background: #ffffff;
   box-shadow: 3px 3px 10px rgba(74, 144, 226, 0.19);
   border-radius: 5px;
-  border: none;
+  border: ${props => (props.$error ? '2px solid #CC1717' : 'none')};
   padding-left: 10px;
 `
 
@@ -90,4 +95,14 @@ export const SignInLink = styled.p`
     cursor: pointer;
     text-decoration: underline;
   }
+`
+
+export const ErrorMessage = styled.p`
+  color: #cc1717;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400px;
+  line-height: normal;
+  margin-top: 4px;
 `
