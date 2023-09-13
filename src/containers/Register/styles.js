@@ -46,7 +46,7 @@ export const Label = styled.p`
   font-style: normal;
   font-weight: 500px;
   line-height: 14px;
-  margin-top: ${props => (props.$error ? '10px' : '2px')};
+  margin-top: ${props => (props.$error ? '10px' : '20px')};
   margin-bottom: 5px;
 `
 
