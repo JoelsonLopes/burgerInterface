@@ -7,7 +7,7 @@ import * as Yup from 'yup'
 
 import Logo from '../../assets/logo_code_burger.svg'
 import RegisterImg from '../../assets/logo_register.svg'
-import Button from '../../conponents/Button'
+import Button from '../../components/Button'
 import apiCodeBurger from '../../services/api'
 import {
   Container,
@@ -41,8 +41,7 @@ function Register() {
     resolver: yupResolver(schema)
   })
 
-  // Mantendo apiStatus para uso futuro
-  const [apiStatus, setApiStatus] = useState(null)
+  const [setApiStatus] = useState(null)
   const onSubmit = async clientData => {
     try {
       const response = await apiCodeBurger.post(
