@@ -8,6 +8,7 @@ import formatCurrency from '../../utils/formatCurrency'
 import { Container, CategoryImg, Image, Button } from './styles'
 
 function OffersCarousel() {
+  const [sliderPerview, setSlidePerview] = useState(5)
   const [offers, setOffers] = useState([])
 
   useEffect(() => {
@@ -26,6 +27,30 @@ function OffersCarousel() {
     loadOffers()
   }, [])
 
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 720) {
+        setSlidePerview(1)
+      } else if (window.innerWidth < 850) {
+        setSlidePerview(2)
+      } else if (window.innerWidth < 1200) {
+        setSlidePerview(3)
+      } else if (window.innerWidth < 1550) {
+        setSlidePerview(4)
+      } else {
+        setSlidePerview(5)
+      }
+    }
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <Container>
       <CategoryImg src={Offers} alt="Logo ofertas" />
@@ -38,7 +63,7 @@ function OffersCarousel() {
         grabCursor={true}
         spaceBetween={30}
         pagination={{ clickable: true }}
-        slidesPerView={4}
+        slidesPerView={sliderPerview}
         style={{ width: '65%' }}
       >
         {offers &&

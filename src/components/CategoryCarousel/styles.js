@@ -5,8 +5,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 35px;
   padding: 35px 0;
+  gap: 35px;
+
+  .swiper-slide img {
+  }
 `
 
 export const Swiper = styled.div`
@@ -25,8 +28,6 @@ export const Image = styled.img`
   border-radius: 10px;
   width: 200px;
   height: 200px;
-
-  object-fit: cover;
 `
 
 export const Button = styled.button`

@@ -7,6 +7,8 @@ import api from '../../services/api'
 import { Container, CategoryImg, Image, Button } from './styles'
 
 function CategoryCarousel() {
+  const [sliderPerview, setSlidePerview] = useState(5)
+
   const [categories, setCategories] = useState([])
 
   useEffect(() => {
@@ -17,6 +19,30 @@ function CategoryCarousel() {
     }
 
     loadCategories()
+  }, [])
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 720) {
+        setSlidePerview(1)
+      } else if (window.innerWidth < 850) {
+        setSlidePerview(2)
+      } else if (window.innerWidth < 1200) {
+        setSlidePerview(3)
+      } else if (window.innerWidth < 1550) {
+        setSlidePerview(4)
+      } else {
+        setSlidePerview(5)
+      }
+    }
+
+    handleResize()
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
 
   return (
@@ -31,7 +57,7 @@ function CategoryCarousel() {
         grabCursor={true}
         spaceBetween={30}
         pagination={{ clickable: true }}
-        slidesPerView={4}
+        slidesPerView={sliderPerview}
         style={{ width: '65%' }}
       >
         {categories &&
