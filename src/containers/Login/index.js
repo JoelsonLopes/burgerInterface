@@ -7,9 +7,10 @@ import * as Yup from 'yup'
 
 import Logo from '../../assets/logo_code_burger.svg'
 import LoginImg from '../../assets/logo_login.svg'
-import Button from '../../components/Button'
+import { Button } from '../../components'
 import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
+
 import {
   Container,
   LoginImage,
@@ -20,7 +21,7 @@ import {
   ErrorMessage
 } from './styles'
 
-function Login() {
+export function Login() {
   const navigate = useNavigate()
   const { putUserData } = useUser()
 
@@ -98,4 +99,3 @@ function Login() {
     </Container>
   )
 }
-export default Login

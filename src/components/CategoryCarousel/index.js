@@ -4,9 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Category from '../../assets/category.png'
 import api from '../../services/api'
+
 import { Container, CategoryImg, Image, Button } from './styles'
 
-function CategoryCarousel() {
+export function CategoryCarousel() {
   const [sliderPerview, setSlidePerview] = useState(5)
 
   const [categories, setCategories] = useState([])
@@ -71,5 +72,3 @@ function CategoryCarousel() {
     </Container>
   )
 }
-
-export default CategoryCarousel

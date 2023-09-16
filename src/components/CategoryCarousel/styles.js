@@ -7,9 +7,6 @@ export const Container = styled.div`
   align-items: center;
   padding: 35px 0;
   gap: 35px;
-
-  .swiper-slide img {
-  }
 `
 
 export const Swiper = styled.div`

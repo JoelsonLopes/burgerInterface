@@ -12,7 +12,7 @@ export const ContainerButton = styled.button`
   font-size: 16px;
   line-height: 19px;
   text-align: center;
-  color: #eeeeee;
+  color: white;
 
   &:hover {
     opacity: 0.8;

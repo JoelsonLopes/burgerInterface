@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import Offers from '../../assets/offers.png'
 import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
+
 import { Container, CategoryImg, Image, Button } from './styles'
 
-function OffersCarousel() {
+export function OffersCarousel() {
   const [sliderPerview, setSlidePerview] = useState(5)
   const [offers, setOffers] = useState([])
 
@@ -79,5 +80,3 @@ function OffersCarousel() {
     </Container>
   )
 }
-
-export default OffersCarousel
