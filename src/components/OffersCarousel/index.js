@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import Offers from '../../assets/offers.png'
+import { useCart } from '../../hooks/CartContext'
 import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
 
@@ -11,6 +13,8 @@ import { Container, CategoryImg, Image, Button } from './styles'
 export function OffersCarousel() {
   const [sliderPerview, setSlidePerview] = useState(5)
   const [offers, setOffers] = useState([])
+  const { putProductInCart } = useCart()
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function loadOffers() {
@@ -65,7 +69,8 @@ export function OffersCarousel() {
         spaceBetween={30}
         pagination={{ clickable: true }}
         slidesPerView={sliderPerview}
-        style={{ width: '65%' }}
+        navigation
+        style={{ width: '90%' }}
       >
         {offers &&
           offers.map(product => (
@@ -73,7 +78,14 @@ export function OffersCarousel() {
               <Image src={product.url} alt="foto do produto" />
               <p>{product.name}</p>
               <p>{product.formatedPrice}</p>
-              <Button>Peça agora</Button>
+              <Button
+                onClick={() => {
+                  putProductInCart(product)
+                  navigate('/carrinho')
+                }}
+              >
+                Peça agora
+              </Button>
             </SwiperSlide>
           ))}
       </Swiper>

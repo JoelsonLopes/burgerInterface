@@ -6,8 +6,7 @@ import formatCurrency from '../../utils/formatCurrency'
 import { Container, Header, Body, EmptyCart } from './styles'
 
 export function CartItens() {
-  const { cartProducts } = useCart()
-  console.log(cartProducts)
+  const { cartProducts, increaseProducts, deCreaseProducts } = useCart()
   return (
     <Container>
       <Header>
@@ -24,7 +23,11 @@ export function CartItens() {
             <img src={product.url} />
             <p>{product.name}</p>
             <p>{formatCurrency(product.price)}</p>
-            <p>{product.quantity}</p>
+            <div className="quantity-container">
+              <button onClick={() => deCreaseProducts(product.id)}>-</button>
+              <p>{product.quantity}</p>
+              <button onClick={() => increaseProducts(product.id)}>+</button>
+            </div>
             <p>{formatCurrency(product.quantity * product.price)}</p>
           </Body>
         ))

@@ -49,6 +49,7 @@ export function CategoryCarousel() {
   return (
     <Container>
       <CategoryImg src={Category} alt="Categorias" />
+
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         autoplay={{
@@ -59,13 +60,16 @@ export function CategoryCarousel() {
         spaceBetween={30}
         pagination={{ clickable: true }}
         slidesPerView={sliderPerview}
-        style={{ width: '65%' }}
+        navigation
+        style={{ width: '90%' }}
       >
         {categories &&
           categories.map(category => (
             <SwiperSlide key={category.id}>
               <Image src={category.url} alt="foto da categoria" />
-              <Button>{category.name}</Button>
+              <Button to={'/produtos'} state={{ categoryId: category.id }}>
+                {category.name}
+              </Button>
             </SwiperSlide>
           ))}
       </Swiper>
