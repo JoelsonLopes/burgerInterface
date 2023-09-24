@@ -1,23 +1,22 @@
-import { yupResolver } from '@hookform/resolvers/yup'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
+
+import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
 import Logo from '../../assets/logo_code_burger.svg'
 import RegisterImg from '../../assets/logo_register.svg'
-import { Button } from '../../components'
+import { Button, ErrorMessage } from '../../components'
 import apiCodeBurger from '../../services/api'
-
 import {
   Container,
   RegisterImage,
   ContainerItens,
   Label,
   Input,
-  SignInLink,
-  ErrorMessage
+  SignInLink
 } from './styles'
 
 export function Register() {
@@ -87,7 +86,7 @@ export function Register() {
             {...register('name')}
             $error={errors.name?.message}
           />
-          <ErrorMessage>{errors.email?.message}</ErrorMessage>
+          <ErrorMessage>{errors.name?.message}</ErrorMessage>
 
           <Label $error={errors.email?.message}>E-mail</Label>
           <Input

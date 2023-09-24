@@ -29,34 +29,24 @@
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "no-unused-vars": "warn",
-        "import/order": [
+        "import-helpers/order-imports": [
             "warn",
             {
+                "newlinesBetween": "always", // new line between groups
                 "groups": [
-                    "builtin",
-                    "external",
-                    "internal",
-                    "parent",
-                    "sibling",
-                    "index"
+                    "/^react/",
+                    "module",
+                    "/^@shared/",
+                    [
+                        "parent",
+                        "sibling",
+                        "index"
+                    ]
                 ],
-                "newlines-between": "always",
                 "alphabetize": {
                     "order": "asc",
-                    "caseInsensitive": true
-                },
-                "pathGroups": [
-                    {
-                        "pattern": "react",
-                        "group": "external",
-                        "position": "before"
-                    },
-                    {
-                        "pattern": "prop-types",
-                        "group": "external",
-                        "position": "after"
-                    }
-                ]
+                    "ignoreCase": true
+                }
             }
         ]
     }

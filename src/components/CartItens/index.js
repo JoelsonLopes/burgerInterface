@@ -2,7 +2,6 @@ import React from 'react'
 
 import { useCart } from '../../hooks/CartContext'
 import formatCurrency from '../../utils/formatCurrency'
-
 import { Container, Header, Body, EmptyCart } from './styles'
 
 export function CartItens() {

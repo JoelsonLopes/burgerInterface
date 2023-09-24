@@ -5,7 +5,6 @@ import ProductsLogo from '../../assets/logo_products.svg'
 import { CardProduct } from '../../components'
 import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
-
 import {
   Container,
   ProductsImg,

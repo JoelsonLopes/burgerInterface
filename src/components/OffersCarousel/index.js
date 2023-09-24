@@ -1,20 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import Arrow from '../../assets/arrow.png'
 import Offers from '../../assets/offers.png'
 import { useCart } from '../../hooks/CartContext'
 import api from '../../services/api'
 import formatCurrency from '../../utils/formatCurrency'
-
-import { Container, CategoryImg, Image, Button } from './styles'
+import {
+  Container,
+  ArrowLeft,
+  CategoryImg,
+  Image,
+  Button,
+  ArrowRight
+} from './styles'
 
 export function OffersCarousel() {
   const [sliderPerview, setSlidePerview] = useState(5)
   const [offers, setOffers] = useState([])
   const { putProductInCart } = useCart()
   const navigate = useNavigate()
+  const swiperRef = useRef(null)
 
   useEffect(() => {
     async function loadOffers() {
@@ -56,24 +65,39 @@ export function OffersCarousel() {
     }
   }, [])
 
+  const handleNextSlide = () => {
+    swiperRef.current.swiper.slideNext()
+  }
+
+  const handlePrevSlide = () => {
+    swiperRef.current.swiper.slidePrev()
+  }
+
   return (
     <Container>
-      <CategoryImg src={Offers} alt="Logo ofertas" />
-      <Swiper
-        modules={[Autoplay, Navigation, Pagination]}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false
-        }}
-        grabCursor={true}
-        spaceBetween={30}
-        pagination={{ clickable: true }}
-        slidesPerView={sliderPerview}
-        navigation
-        style={{ width: '90%' }}
-      >
-        {offers &&
-          offers.map(product => (
+      <div>
+        <CategoryImg src={Offers} alt="Logo ofertas" />
+      </div>
+      <ArrowLeft src={Arrow} onClick={handlePrevSlide} />
+      {offers.length > 0 && (
+        <Swiper
+          ref={swiperRef}
+          modules={[Autoplay, Navigation, Pagination]}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false
+          }}
+          grabCursor={true}
+          spaceBetween={30}
+          pagination={{ clickable: true }}
+          slidesPerView={sliderPerview}
+          style={{ width: '70%' }}
+          navigation={{
+            prevEl: '.swiper-button-prev',
+            nextEl: '.swiper-button-next'
+          }}
+        >
+          {offers.map(product => (
             <SwiperSlide key={product.id}>
               <Image src={product.url} alt="foto do produto" />
               <p>{product.name}</p>
@@ -88,7 +112,9 @@ export function OffersCarousel() {
               </Button>
             </SwiperSlide>
           ))}
-      </Swiper>
+        </Swiper>
+      )}
+      <ArrowRight src={Arrow} onClick={handleNextSlide} />
     </Container>
   )
 }

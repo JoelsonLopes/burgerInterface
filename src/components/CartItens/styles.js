@@ -31,7 +31,7 @@ export const Body = styled.div`
   grid-gap: 10px 15px;
 
   img {
-    width: 120px;
+    width: 150px;
     border-radius: 10px;
 
     p {

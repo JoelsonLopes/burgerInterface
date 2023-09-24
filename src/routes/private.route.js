@@ -1,6 +1,7 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { Navigate } from 'react-router-dom'
+
+import PropTypes from 'prop-types'
 
 import { Header } from '../components/Header'
 function PrivateRoute({ children }) {
@@ -9,7 +10,7 @@ function PrivateRoute({ children }) {
   const isAdmin = user && JSON.parse(user).admin
 
   if (!isAdmin && window.location.pathname === '/pedidos') {
-    return <Navigate to="/login" />
+    return <Navigate to="/" />
   }
 
   return (

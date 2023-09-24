@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ToastContainer } from 'react-toastify'
+
 import { register } from 'swiper/element/bundle'
 
 import AppProvider from './hooks'

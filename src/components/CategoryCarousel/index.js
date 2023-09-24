@@ -1,16 +1,24 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
+
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
+import Arrow from '../../assets/arrow.png'
 import Category from '../../assets/category.png'
 import api from '../../services/api'
-
-import { Container, CategoryImg, Image, Button } from './styles'
+import {
+  Container,
+  ArrowLeft,
+  CategoryImg,
+  Image,
+  Button,
+  ArrowRight
+} from './styles'
 
 export function CategoryCarousel() {
   const [sliderPerview, setSlidePerview] = useState(5)
-
   const [categories, setCategories] = useState([])
+  const swiperRef = useRef(null)
 
   useEffect(() => {
     async function loadCategories() {
@@ -46,11 +54,22 @@ export function CategoryCarousel() {
     }
   }, [])
 
+  const handleNextSlide = () => {
+    swiperRef.current.swiper.slideNext()
+  }
+
+  const handlePrevSlide = () => {
+    swiperRef.current.swiper.slidePrev()
+  }
+
   return (
     <Container>
-      <CategoryImg src={Category} alt="Categorias" />
-
+      <div>
+        <CategoryImg src={Category} alt="Categorias" />
+      </div>
+      <ArrowLeft src={Arrow} onClick={handlePrevSlide} />
       <Swiper
+        ref={swiperRef}
         modules={[Autoplay, Navigation, Pagination]}
         autoplay={{
           delay: 3500,
@@ -60,8 +79,11 @@ export function CategoryCarousel() {
         spaceBetween={30}
         pagination={{ clickable: true }}
         slidesPerView={sliderPerview}
-        navigation
-        style={{ width: '90%' }}
+        style={{ width: '70%' }}
+        navigation={{
+          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next'
+        }}
       >
         {categories &&
           categories.map(category => (
@@ -73,6 +95,7 @@ export function CategoryCarousel() {
             </SwiperSlide>
           ))}
       </Swiper>
+      <ArrowRight src={Arrow} onClick={handleNextSlide} />
     </Container>
   )
 }

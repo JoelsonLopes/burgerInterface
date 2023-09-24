@@ -4,7 +4,6 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import Cart from '../../assets/cart.svg'
 import Person from '../../assets/person.svg'
 import { useUser } from '../../hooks/UserContext'
-
 import {
   Container,
   ContainerLeft,

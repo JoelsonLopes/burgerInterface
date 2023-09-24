@@ -62,3 +62,20 @@ export const Button = styled.button`
     opacity: 0.6;
   }
 `
+
+export const ArrowLeft = styled.img`
+  position: absolute;
+  left: 150px;
+  margin-top: 185px;
+  transform: rotate(180deg);
+  width: 50px;
+  cursor: pointer;
+`
+
+export const ArrowRight = styled.img`
+  position: absolute;
+  right: 185px;
+  margin-top: 185px;
+  width: 50px;
+  cursor: pointer;
+`

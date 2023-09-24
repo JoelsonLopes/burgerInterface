@@ -4,7 +4,6 @@ import { toast } from 'react-toastify'
 import { useCart } from '../../hooks/CartContext'
 import formatCurrency from '../../utils/formatCurrency'
 import { Button } from '../Button'
-
 import api from './../../services/api'
 import { Container } from './styles'
 

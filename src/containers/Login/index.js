@@ -1,24 +1,23 @@
-import { yupResolver } from '@hookform/resolvers/yup'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+
+import { yupResolver } from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
 import Logo from '../../assets/logo_code_burger.svg'
 import LoginImg from '../../assets/logo_login.svg'
-import { Button } from '../../components'
+import { Button, ErrorMessage } from '../../components'
 import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
-
 import {
   Container,
   LoginImage,
   ContainerItens,
   Label,
   Input,
-  SignInLink,
-  ErrorMessage
+  SignInLink
 } from './styles'
 
 export function Login() {
@@ -43,26 +42,30 @@ export function Login() {
   })
 
   const onSubmit = async clientData => {
-    const { data } = await toast.promise(
-      api.post('sessions', {
-        email: clientData.email,
-        password: clientData.password
-      }),
-      {
-        pending: 'Verificando seus dados',
-        success: 'Seja bem vindo(a)',
-        error: 'Verefique seu email e senha'
-      }
-    )
-    putUserData(data)
+    try {
+      const { data } = await toast.promise(
+        api.post('sessions', {
+          email: clientData.email,
+          password: clientData.password
+        }),
+        {
+          pending: 'Verificando seus dados',
+          success: 'Seja bem vindo(a)',
+          error: 'Verefique seu email e senha'
+        }
+      )
+      putUserData(data)
 
-    setTimeout(() => {
-      if (data.admin) {
-        navigate('/pedidos')
-      } else {
-        navigate('/home')
-      }
-    }, 1000)
+      setTimeout(() => {
+        if (data.admin) {
+          navigate('/pedidos')
+        } else {
+          navigate('/home')
+        }
+      }, 1000)
+    } catch (error) {
+      console.error('Ocorreu um erro:', error)
+    }
   }
 
   return (

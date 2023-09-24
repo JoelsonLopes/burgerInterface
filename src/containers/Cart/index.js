@@ -2,7 +2,6 @@ import React from 'react'
 
 import CartLogo from '../../assets/logo_cart.svg'
 import { CartItens, CartResume } from '../../components'
-
 import { CartImg, Container, Wrapper } from './styles'
 
 export function Cart() {
