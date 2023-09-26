@@ -29,7 +29,7 @@ export function Products() {
 
   useEffect(() => {
     async function loadCategories() {
-      const { data } = await api.get('Categories')
+      const { data } = await api.get('categories')
 
       const newCategories = [{ id: 0, name: 'Todos' }, ...data]
 
