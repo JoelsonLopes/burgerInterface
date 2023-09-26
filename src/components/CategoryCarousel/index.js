@@ -65,7 +65,7 @@ export function CategoryCarousel() {
   return (
     <Container>
       <div>
-        <CategoryImg src={Category} alt="Categorias" />
+        <CategoryImg src={Category} alt="categorias" />
       </div>
       <ArrowLeft src={Arrow} onClick={handlePrevSlide} />
       <Swiper
