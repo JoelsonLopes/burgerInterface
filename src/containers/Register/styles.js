@@ -13,6 +13,12 @@ export const Container = styled.div`
 
 export const RegisterImage = styled.img`
   height: 70%;
+
+  @media (max-width: 600px) {
+    .RegisterImage {
+      display: none;
+    }
+  }
 `
 
 export const ContainerItens = styled.div`
