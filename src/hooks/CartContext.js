@@ -72,10 +72,22 @@ export const CartProvider = ({ children }) => {
     const loadUserData = async () => {
       const clientCartData = await localStorage.getItem('codeburger:cartInfo')
 
-      if (clientCartData) {
-        setCartProducts(JSON.parse(clientCartData))
+      if (!clientCartData) {
+        setCartProducts([])
+      } else {
+        const userData = await localStorage.getItem('codeburger:userData')
+        const userId = userData && JSON.parse(userData).id
+        const cartData = JSON.parse(clientCartData)
+
+        if (userId === cartData.userId) {
+          setCartProducts(cartData.cartProducts)
+        } else {
+          localStorage.removeItem('codeburger:cartInfo')
+          setCartProducts([])
+        }
       }
     }
+
     loadUserData()
   }, [])
 
