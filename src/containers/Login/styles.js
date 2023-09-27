@@ -23,6 +23,7 @@ export const ContainerItens = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 100%;
 
   form {
     display: flex;
