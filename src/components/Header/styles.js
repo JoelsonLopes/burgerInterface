@@ -3,8 +3,9 @@ import styled from 'styled-components'
 export const Container = styled.div`
   position: fixed;
   width: 100%;
-  height: 72px;
-  background: #ffffff;
+  height: 68px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(1px);
   box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.15);
   display: flex;
   align-items: center;
