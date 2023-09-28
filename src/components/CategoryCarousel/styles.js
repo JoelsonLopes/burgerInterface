@@ -60,7 +60,7 @@ export const Button = styled(Link)`
 export const ArrowLeft = styled.img`
   position: absolute;
   left: 25px;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%) rotate(180deg);
   width: 50px;
   cursor: pointer;
@@ -69,7 +69,7 @@ export const ArrowLeft = styled.img`
 export const ArrowRight = styled.img`
   position: absolute;
   right: 25px;
-  top: 50%;
+  top: 70%;
   transform: translateY(-50%);
   width: 50px;
   cursor: pointer;
