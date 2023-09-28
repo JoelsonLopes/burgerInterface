@@ -16,7 +16,7 @@ function PrivateRoute({ children }) {
   return (
     <>
       {user && !isAdmin && <Header />}
-      {user ? children : <Navigate to="/login" />}
+      {user ? children : <Navigate to="/" />}
     </>
   )
 }

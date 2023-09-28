@@ -1,29 +1,26 @@
 import styled from 'styled-components'
 
-import Background from '../../assets/background.svg'
-
 export const Container = styled.div`
   height: 100vh;
   width: 100vw;
-  background: url('${Background}');
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
 `
 
 export const LoginImage = styled.img`
-  height: 70%;
+  flex: 70%;
+  height: 100%;
+  object-fit: cover;
 `
 
 export const ContainerItens = styled.div`
+  flex: 30%;
   background: #373737;
   border-radius: 0 10px 10px 0;
-  height: 70%;
-  padding: 25px 75px;
+  padding: 2% 5%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-width: 100%;
 
   form {
     display: flex;
@@ -32,28 +29,28 @@ export const ContainerItens = styled.div`
 
   h1 {
     color: #ffffff;
-    font-size: 24px;
+    font-size: 2rem;
     font-style: normal;
-    font-weight: 500px;
+    font-weight: 500;
     line-height: normal;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 10%;
   }
 `
 
 export const Label = styled.p`
   color: #ffffff;
-  font-size: 12px;
+  font-size: 1rem;
   font-style: normal;
-  font-weight: 500px;
+  font-weight: 500;
   line-height: normal;
-  margin-top: 28px;
-  margin-bottom: 5px;
+  margin-top: 2%;
+  margin-bottom: 1%;
 `
 
 export const Input = styled.input`
-  width: 392px;
-  height: 39px;
+  width: 100%;
+  height: 2rem;
   background: #ffffff;
   box-shadow: 3px 3px 10px rgba(74, 144, 226, 0.19);
   border-radius: 5px;
@@ -63,9 +60,9 @@ export const Input = styled.input`
 
 export const SignInLink = styled.p`
   color: #ffffff;
-  font-size: 14px;
+  font-size: 1.2rem;
   font-style: normal;
-  font-weight: 300px;
+  font-weight: 300;
   line-height: normal;
 
   a {
