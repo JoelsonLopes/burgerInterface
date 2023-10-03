@@ -1,3 +1,52 @@
+
+> ## Projeto
+<p>Um sistema para lanchonete (fastfood), que permite aos usuários se cadastrar, fazer pedidos e adicionar ao carrinho.</p>
+<p>Tambem é possivel fazer login como administrador e ver os pedidos que foram realizados, ver a lista de produtos, adicionar e editar novos produtos.</p>
+<p>Todos os usuários cadastrados, os produtos e os pedidos realizados, ficam gravados no banco de dados. Para ver a api <a href="https://github.com/JoelsonLopes/Club_Burguer_back">clique aqui</a>.</p>
+
+<br>
+<br>
+
+<p align="center">
+  <a href="https://burger-interface-l5ry.vercel.app/">Clique aqui para testar</a>
+  <br>
+  <sub>  O projeto pode não funcionar corretamente em telas menores pois ainda não está responsivo.  </sub>
+</p>
+
+<br>
+<br>
+
+![Vídeo sem título ‐ Feito com o Clipchamp](https://github.com/JoelsonLopes/burgerInterface/assets/109318293/dd3058ee-b5be-4100-a399-d0b3f0c62614)
+
+
+> ## Tecnologias
+Esse projeto foi desenvolvido com as seguintes tecnologias:
+
+* [React.js](https://pt-br.reactjs.org/)
+* [Node.js](https://nodejs.org/en/)
+* [React Hooks](https://pt-br.reactjs.org/docs/hooks-intro.html)
+* [Styled-components](https://styled-components.com/)
+* [Material UI](https://mui.com/pt/)
+* [React Hook Form](https://react-hook-form.com/)
+* [React-router-dom](https://v5.reactrouter.com/web/guides/quick-start)
+* [React Toastify](https://fkhadra.github.io/react-toastify/introduction)
+* [React Elastic Carousel](https://sag1v.github.io/react-elastic-carousel/)
+* [Axios](https://www.npmjs.com/package/axios)
+* [yarn](https://classic.yarnpkg.com/en/docs/install#windows-stable)
+* [Yup](https://www.npmjs.com/package/yup)
+* [Prettier](https://prettier.io/)
+* [ESLint](https://eslint.org/)
+
+<br>
+
+>## Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+<br>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
