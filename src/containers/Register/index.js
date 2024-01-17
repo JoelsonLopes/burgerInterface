@@ -100,7 +100,7 @@ export function Register() {
             {...register('password')}
             $error={errors.password?.message}
           />
-          <ErrorMessage $error={errors.confirmPasswordpassword?.message}>
+          <ErrorMessage $error={errors.confirmPassword?.message}>
             {errors.password?.message}
           </ErrorMessage>
 

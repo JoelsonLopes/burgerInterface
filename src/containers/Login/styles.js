@@ -5,12 +5,24 @@ export const Container = styled.div`
   width: 100vw;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Altere a direção da coluna para telas menores */
+  }
 `
 
-export const LoginImage = styled.img`
+export const LoginImage = styled.div`
   flex: 70%;
   height: 100%;
-  object-fit: cover;
+  background-image: url('sua-imagem.jpg'); /* Substitua 'sua-imagem.jpg' pela imagem que você deseja usar como background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (max-width: 768px) {
+    flex: none; /* Remova a flexibilidade da imagem em telas menores */
+    height: 50vh; /* Ajuste a altura conforme necessário */
+  }
 `
 
 export const ContainerItens = styled.div`
@@ -21,6 +33,7 @@ export const ContainerItens = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative; /* Adicione uma posição relativa para que possa posicionar na frente da imagem */
 
   form {
     display: flex;
@@ -35,6 +48,15 @@ export const ContainerItens = styled.div`
     line-height: normal;
     text-align: center;
     margin-top: 10%;
+  }
+
+  @media (max-width: 768px) {
+    flex: none; /* Remova a flexibilidade em telas menores */
+    width: 100%; /* Defina a largura como 100% em telas menores */
+    height: 50vh; /* Ajuste a altura conforme necessário */
+    border-radius: 0; /* Remova o arredondamento em telas menores */
+    margin-top: 20px; /* Ajuste a margem superior conforme necessário */
+    z-index: 1; /* Coloque na frente da imagem de fundo */
   }
 `
 
